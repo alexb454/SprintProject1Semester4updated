@@ -1,4 +1,4 @@
-package The_Golf_Club.Membership;
+package The_Golf_Club.MembershipAndTournaments;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,6 +10,7 @@ import java.time.LocalDate;
 public class Membership {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
     private String Name;
     private String Address;
     private String Email;
@@ -20,6 +21,14 @@ public class Membership {
     private String CurrentTournaments;
     private String PastTournaments;
     private String UpcomingTournaments;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return Name;
