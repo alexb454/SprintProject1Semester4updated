@@ -22,6 +22,21 @@ public class Membership {
     private String PastTournaments;
     private String UpcomingTournaments;
 
+    public Membership(String Name, String Address, String Email, int PhoneNumber, LocalDate StartDate,
+                      LocalDate Duration, String MembershipType, String PastTournaments,
+                      String CurrentTournaments, String UpcomingTournaments) {
+        this.Name = Name;
+        this.Address = Address;
+        this.Email = Email;
+        this.PhoneNumber = PhoneNumber;
+        this.StartDate = StartDate;
+        this.Duration = Duration;
+        this.MembershipType = MembershipType;
+        this.PastTournaments = PastTournaments;
+        this.CurrentTournaments = CurrentTournaments;
+        this.UpcomingTournaments = UpcomingTournaments;
+    }
+
     public long getId() {
         return id;
     }

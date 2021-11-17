@@ -19,6 +19,17 @@ public class Tournament {
     private String Members;
     private String Standings;
 
+    public Tournament(LocalTime Start, LocalTime End, String Location, double Fee, double Prize,
+                      String Members, String Standings){
+        this.Start = Start;
+        this.End = End;
+        this.Location = Location;
+        this.Fee = Fee;
+        this.Prize = Prize;
+        this.Members = Members;
+        this.Standings = Standings;
+    }
+
     public long getId() {
         return id;
     }

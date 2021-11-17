@@ -28,6 +28,7 @@ public class MembershipController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
     @GetMapping("/members")
     public ResponseEntity<List<Membership>> getAllMembershipsByAddress(@RequestParam(required = false) String Address) {
         try{
@@ -89,7 +90,7 @@ public class MembershipController {
     }
 
     @GetMapping("/members")
-    public ResponseEntity<List<Membership>> getAllMembershipsByDuration(@RequestParam(required = false) String MembershipType) {
+    public ResponseEntity<List<Membership>> getAllMembershipsByMembershipType(@RequestParam(required = false) String MembershipType) {
         try{
             List<Membership> memberships = new ArrayList<Membership>();
             if(MembershipType == null)
@@ -128,16 +129,47 @@ public class MembershipController {
         }
     }
 
-    /*@PostMapping("/members")
+    @PostMapping("/members")
     public ResponseEntity<Membership> postMembership(@RequestBody Membership membership) {
         try {
-            Membership _membership = membershipRepository;
+            Membership membership1 = (Membership) membershipRepository
                     .save(new Membership(membership.getName(), membership.getAddress(), membership.getEmail(), membership.getPhoneNumber(),
                             membership.getStartDate(), membership.getDuration(), membership.getMembershipType(), membership.getPastTournaments(),
                     membership.getCurrentTournaments(), membership.getUpcomingTournaments()));
-            return new ResponseEntity<>(_membership, HttpStatus.CREATED);
+            return new ResponseEntity<>(membership1, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
-    }*/
+    }
+
+    @PutMapping("/members/{id}")
+    public ResponseEntity<Membership> updatedMembership(@PathVariable("id") long id, @RequestBody Membership membership) {
+        Optional<Membership> membershipInfo = membershipRepository.findById(id);
+        if (membershipInfo.isPresent()) {
+            Membership membership1 = membershipInfo.get();
+            membership1.setName(membership.getName());
+            membership1.setAddress(membership.getAddress());
+            membership1.setEmail(membership.getEmail());
+            membership1.setPhoneNumber(membership.getPhoneNumber());
+            membership1.setStartDate(membership.getStartDate());
+            membership1.setDuration(membership.getDuration());
+            membership1.setMembershipType(membership.getMembershipType());
+            membership1.setCurrentTournaments(membership.getCurrentTournaments());
+            membership1.setPastTournaments(membership.getPastTournaments());
+            membership1.setUpcomingTournaments(membership.getUpcomingTournaments());
+            return new ResponseEntity<>(membershipRepository.save(membership1), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+    @DeleteMapping("/members/{id}")
+    public ResponseEntity<Membership> deletedMembership(@PathVariable("id") long id){
+        try{
+            membershipRepository.deleteById(id);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }catch(Exception e){
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
 }
