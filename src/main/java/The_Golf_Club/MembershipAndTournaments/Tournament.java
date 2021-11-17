@@ -4,15 +4,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Entity
 public class Tournament {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private LocalDate Start;
-    private LocalDate End;
+    private LocalTime Start;
+    private LocalTime End;
     private String Location;
     private double Fee;
     private double Prize;
@@ -27,19 +27,19 @@ public class Tournament {
         this.id = id;
     }
 
-    public LocalDate getStart() {
+    public LocalTime getStart() {
         return Start;
     }
 
-    public void setStart(LocalDate start) {
+    public void setStart(LocalTime start) {
         Start = start;
     }
 
-    public LocalDate getEnd() {
+    public LocalTime getEnd() {
         return End;
     }
 
-    public void setEnd(LocalDate end) {
+    public void setEnd(LocalTime end) {
         End = end;
     }
 
