@@ -10,19 +10,19 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDate;
 import java.util.*;
 
-@CrossOrigin(origins = "http://localhost:3306")
+@CrossOrigin(origins = "http://localhost:8082")
 @RestController
 @RequestMapping("/api")
 public class MembershipController {
     @Autowired
-    private MembershipRepository membershipRepository;
+    MembershipRepository repo;
 
     @GetMapping("/members")
-    public ResponseEntity<List<Membership>> getAllMembershipsByName(@RequestParam(required = false) String Name) {
+    public ResponseEntity<List<Membership>> getAllMembershipsByName(@RequestParam(required = false) String name) {
         try{
             List<Membership> memberships = new ArrayList<Membership>();
-            if(Name == null)
-                membershipRepository.findByMembershipName(Name).forEach(memberships::add);
+            if(name == null)
+                repo.findByMembershipName(name).forEach(memberships::add);
             return new ResponseEntity<>(memberships, HttpStatus.OK);
         }catch(Exception e){
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -30,11 +30,11 @@ public class MembershipController {
     }
 
     @GetMapping("/members")
-    public ResponseEntity<List<Membership>> getAllMembershipsByAddress(@RequestParam(required = false) String Address) {
+    public ResponseEntity<List<Membership>> getAllMembershipsByAddress(@RequestParam(required = false) String address) {
         try{
             List<Membership> memberships = new ArrayList<Membership>();
-            if(Address == null)
-                membershipRepository.findByMembershipAddress(Address).forEach(memberships::add);
+            if(address == null)
+                repo.findByMembershipAddress(address).forEach(memberships::add);
             return new ResponseEntity<>(memberships, HttpStatus.OK);
         }catch(Exception e){
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -42,11 +42,11 @@ public class MembershipController {
     }
 
     @GetMapping("/members")
-    public ResponseEntity<List<Membership>> getAllMembershipsByEmail(@RequestParam(required = false) String Email) {
+    public ResponseEntity<List<Membership>> getAllMembershipsByEmail(@RequestParam(required = false) String email) {
         try{
             List<Membership> memberships = new ArrayList<Membership>();
-            if(Email == null)
-                membershipRepository.findByMembershipEmail(Email).forEach(memberships::add);
+            if(email == null)
+                repo.findByMembershipEmail(email).forEach(memberships::add);
             return new ResponseEntity<>(memberships, HttpStatus.OK);
         }catch(Exception e){
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -54,11 +54,11 @@ public class MembershipController {
     }
 
     @GetMapping("/members")
-    public ResponseEntity<List<Membership>> getAllMembershipsByPhoneNumber(@RequestParam(required = false) int PhoneNumber) {
+    public ResponseEntity<List<Membership>> getAllMembershipsByPhoneNumber(@RequestParam(required = false) int phoneNumber) {
         try{
             List<Membership> memberships = new ArrayList<Membership>();
-            if(PhoneNumber == 0)
-                membershipRepository.findByMembershipPhoneNumber(PhoneNumber).forEach(memberships::add);
+            if(phoneNumber == 0)
+                repo.findByMembershipPhoneNumber(phoneNumber).forEach(memberships::add);
             return new ResponseEntity<>(memberships, HttpStatus.OK);
         }catch(Exception e){
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -66,11 +66,11 @@ public class MembershipController {
     }
 
     @GetMapping("/members")
-    public ResponseEntity<List<Membership>> getAllMembershipsByStartDate(@RequestParam(required = false) LocalDate StartDate) {
+    public ResponseEntity<List<Membership>> getAllMembershipsByStartDate(@RequestParam(required = false) LocalDate startDate) {
         try{
             List<Membership> memberships = new ArrayList<Membership>();
-            if(StartDate == null)
-                membershipRepository.findByMembershipStartDate(StartDate).forEach(memberships::add);
+            if(startDate == null)
+                repo.findByMembershipStartDate(startDate).forEach(memberships::add);
             return new ResponseEntity<>(memberships, HttpStatus.OK);
         }catch(Exception e){
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -78,11 +78,11 @@ public class MembershipController {
     }
 
     @GetMapping("/members")
-    public ResponseEntity<List<Membership>> getAllMembershipsByDuration(@RequestParam(required = false) LocalDate Duration) {
+    public ResponseEntity<List<Membership>> getAllMembershipsByDuration(@RequestParam(required = false) LocalDate duration) {
         try{
             List<Membership> memberships = new ArrayList<Membership>();
-            if(Duration == null)
-                membershipRepository.findByMembershipDuration(Duration).forEach(memberships::add);
+            if(duration == null)
+                repo.findByMembershipDuration(duration).forEach(memberships::add);
             return new ResponseEntity<>(memberships, HttpStatus.OK);
         }catch(Exception e){
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -90,11 +90,11 @@ public class MembershipController {
     }
 
     @GetMapping("/members")
-    public ResponseEntity<List<Membership>> getAllMembershipsByMembershipType(@RequestParam(required = false) String MembershipType) {
+    public ResponseEntity<List<Membership>> getAllMembershipsByMembershipType(@RequestParam(required = false) String membershipType) {
         try{
             List<Membership> memberships = new ArrayList<Membership>();
-            if(MembershipType == null)
-                membershipRepository.findByMembershipType(MembershipType).forEach(memberships::add);
+            if(membershipType == null)
+                repo.findByMembershipType(membershipType).forEach(memberships::add);
             return new ResponseEntity<>(memberships, HttpStatus.OK);
         }catch(Exception e){
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -102,15 +102,15 @@ public class MembershipController {
     }
 
     @GetMapping("/members")
-    public ResponseEntity<List<Membership>> getAllMembershipsByTournaments(@RequestParam(required = false) String CurrentTournaments, String PastTournaments) {
+    public ResponseEntity<List<Membership>> getAllMembershipsByTournaments(@RequestParam(required = false) String currentTournaments, String pastTournaments) {
         try{
             List<Membership> memberships = new ArrayList<Membership>();
-            if(CurrentTournaments == null & PastTournaments == null)
-                membershipRepository.findAll().forEach(memberships::add);
-            else if(CurrentTournaments == null)
-                membershipRepository.findByMembershipCurrentTournaments(CurrentTournaments).forEach(memberships::add);
+            if(currentTournaments == null & pastTournaments == null)
+                repo.findAll().forEach(memberships::add);
+            else if(currentTournaments == null)
+                repo.findByMembershipCurrentTournaments(currentTournaments).forEach(memberships::add);
             else
-                membershipRepository.findByMembershipPastTournaments(PastTournaments).forEach(memberships::add);
+                repo.findByMembershipPastTournaments(pastTournaments).forEach(memberships::add);
             return new ResponseEntity<>(memberships, HttpStatus.OK);
         }catch(Exception e){
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -118,11 +118,11 @@ public class MembershipController {
     }
 
     @GetMapping("/members")
-    public ResponseEntity<List<Membership>> getAllMembershipsByUpcomingTournaments(@RequestParam(required = false) String UpcomingTournaments) {
+    public ResponseEntity<List<Membership>> getAllMembershipsByUpcomingTournaments(@RequestParam(required = false) String upcomingTournaments) {
         try{
             List<Membership> memberships = new ArrayList<Membership>();
-            if(UpcomingTournaments == null)
-                membershipRepository.findByMembershipUpcomingTournaments(UpcomingTournaments).forEach(memberships::add);
+            if(upcomingTournaments == null)
+                repo.findByMembershipUpcomingTournaments(upcomingTournaments).forEach(memberships::add);
             return new ResponseEntity<>(memberships, HttpStatus.OK);
         }catch(Exception e){
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -132,7 +132,7 @@ public class MembershipController {
     @PostMapping("/members")
     public ResponseEntity<Membership> postMembership(@RequestBody Membership membership) {
         try {
-            Membership membership1 = (Membership) membershipRepository
+            Membership membership1 = (Membership) repo
                     .save(new Membership(membership.getName(), membership.getAddress(), membership.getEmail(), membership.getPhoneNumber(),
                             membership.getStartDate(), membership.getDuration(), membership.getMembershipType(), membership.getPastTournaments(),
                     membership.getCurrentTournaments(), membership.getUpcomingTournaments()));
@@ -144,7 +144,7 @@ public class MembershipController {
 
     @PutMapping("/members/{id}")
     public ResponseEntity<Membership> updatedMembership(@PathVariable("id") long id, @RequestBody Membership membership) {
-        Optional<Membership> membershipInfo = membershipRepository.findById(id);
+        Optional<Membership> membershipInfo = repo.findById(id);
         if (membershipInfo.isPresent()) {
             Membership membership1 = membershipInfo.get();
             membership1.setName(membership.getName());
@@ -157,7 +157,7 @@ public class MembershipController {
             membership1.setCurrentTournaments(membership.getCurrentTournaments());
             membership1.setPastTournaments(membership.getPastTournaments());
             membership1.setUpcomingTournaments(membership.getUpcomingTournaments());
-            return new ResponseEntity<>(membershipRepository.save(membership1), HttpStatus.OK);
+            return new ResponseEntity<>(repo.save(membership1), HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
@@ -165,7 +165,7 @@ public class MembershipController {
     @DeleteMapping("/members/{id}")
     public ResponseEntity<Membership> deletedMembership(@PathVariable("id") long id){
         try{
-            membershipRepository.deleteById(id);
+            repo.deleteById(id);
             return new ResponseEntity<>(HttpStatus.OK);
         }catch(Exception e){
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);

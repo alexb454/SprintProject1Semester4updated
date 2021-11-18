@@ -10,14 +10,14 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 @RepositoryRestResource(collectionResourceRel = "members", path = "members")
 public interface MembershipRepository extends PagingAndSortingRepository<Membership, Long> {
-    List<Membership> findByMembershipName(@Param("Name") String Name);
-    List<Membership> findByMembershipAddress(@Param("Address") String Address);
-    List<Membership> findByMembershipEmail(@Param("Email") String Email);
-    List<Membership> findByMembershipPhoneNumber(@Param("PhoneNumber") int PhoneNumber);
-    List<Membership> findByMembershipStartDate(@Param("StartDate") LocalDate StartDate);
-    List<Membership> findByMembershipDuration(@Param("Duration") LocalDate Duration);
-    List<Membership> findByMembershipType(@Param("MembershipType") String MembershipType);
-    List<Membership> findByMembershipCurrentTournaments(@Param("CurrentTournaments") String CurrentTournaments);
-    List<Membership> findByMembershipPastTournaments(@Param("PastTournaments") String PastTournaments);
-    List<Membership> findByMembershipUpcomingTournaments(@Param("UpcomingTournaments") String UpcomingTournaments);
+    List<Membership> findByMembershipName(@Param("name") String name);
+    List<Membership> findByMembershipAddress(@Param("address") String address);
+    List<Membership> findByMembershipEmail(@Param("email") String email);
+    List<Membership> findByMembershipPhoneNumber(@Param("phoneNumber") int phoneNumber);
+    List<Membership> findByMembershipStartDate(@Param("startDate") LocalDate startDate);
+    List<Membership> findByMembershipDuration(@Param("duration") LocalDate duration);
+    List<Membership> findByMembershipType(@Param("membershipType") String membershipType);
+    List<Membership> findByMembershipCurrentTournaments(@Param("currentTournaments") String currentTournaments);
+    List<Membership> findByMembershipPastTournaments(@Param("pastTournaments") String pastTournaments);
+    List<Membership> findByMembershipUpcomingTournaments(@Param("upcomingTournaments") String upcomingTournaments);
 }

@@ -11,30 +11,30 @@ public class Membership {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private String Name;
-    private String Address;
-    private String Email;
-    private int PhoneNumber;
-    private LocalDate StartDate;
-    private LocalDate Duration;
-    private String MembershipType;
-    private String CurrentTournaments;
-    private String PastTournaments;
-    private String UpcomingTournaments;
+    private String name;
+    private String address;
+    private String email;
+    private int phoneNumber;
+    private LocalDate startDate;
+    private LocalDate duration;
+    private String membershipType;
+    private String currentTournaments;
+    private String pastTournaments;
+    private String upcomingTournaments;
 
-    public Membership(String Name, String Address, String Email, int PhoneNumber, LocalDate StartDate,
-                      LocalDate Duration, String MembershipType, String PastTournaments,
-                      String CurrentTournaments, String UpcomingTournaments) {
-        this.Name = Name;
-        this.Address = Address;
-        this.Email = Email;
-        this.PhoneNumber = PhoneNumber;
-        this.StartDate = StartDate;
-        this.Duration = Duration;
-        this.MembershipType = MembershipType;
-        this.PastTournaments = PastTournaments;
-        this.CurrentTournaments = CurrentTournaments;
-        this.UpcomingTournaments = UpcomingTournaments;
+    public Membership(String name, String address, String email, int phoneNumber, LocalDate startDate,
+                      LocalDate duration, String membershipType, String pastTournaments,
+                      String currentTournaments, String upcomingTournaments) {
+        this.name = name;
+        this.address = address;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.startDate = startDate;
+        this.duration = duration;
+        this.membershipType = membershipType;
+        this.pastTournaments = pastTournaments;
+        this.currentTournaments = currentTournaments;
+        this.upcomingTournaments = upcomingTournaments;
     }
 
     public long getId() {
@@ -46,82 +46,82 @@ public class Membership {
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        name = name;
     }
 
     public String getAddress() {
-        return Address;
+        return address;
     }
 
     public void setAddress(String address) {
-        Address = address;
+        address = address;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String email) {
-        Email = email;
+        email = email;
     }
 
     public int getPhoneNumber() {
-        return PhoneNumber;
+        return phoneNumber;
     }
 
     public void setPhoneNumber(int phoneNumber) {
-        PhoneNumber = phoneNumber;
+        phoneNumber = phoneNumber;
     }
 
     public LocalDate getStartDate() {
-        return StartDate;
+        return startDate;
     }
 
     public void setStartDate(LocalDate startDate) {
-        StartDate = startDate;
+        startDate = startDate;
     }
 
     public LocalDate getDuration() {
-        return Duration;
+        return duration;
     }
 
     public void setDuration(LocalDate duration) {
-        Duration = duration;
+        duration = duration;
     }
 
     public String getMembershipType() {
-        return MembershipType;
+        return membershipType;
     }
 
     public void setMembershipType(String membershipType) {
-        MembershipType = membershipType;
+        membershipType = membershipType;
     }
 
     public String getCurrentTournaments() {
-        return CurrentTournaments;
+        return currentTournaments;
     }
 
     public void setCurrentTournaments(String currentTournaments) {
-        CurrentTournaments = currentTournaments;
+        currentTournaments = currentTournaments;
     }
 
     public String getPastTournaments() {
-        return PastTournaments;
+        return pastTournaments;
     }
 
     public void setPastTournaments(String pastTournaments) {
-        PastTournaments = pastTournaments;
+        pastTournaments = pastTournaments;
     }
 
     public String getUpcomingTournaments() {
-        return UpcomingTournaments;
+        return upcomingTournaments;
     }
 
     public void setUpcomingTournaments(String upcomingTournaments) {
-        UpcomingTournaments = upcomingTournaments;
+        upcomingTournaments = upcomingTournaments;
     }
 }

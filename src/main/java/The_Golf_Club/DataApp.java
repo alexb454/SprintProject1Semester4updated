@@ -2,6 +2,7 @@ package The_Golf_Club;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.core.SpringVersion;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,7 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class DataApp {
     public static void main(String[] args) {
-        SpringApplication.run(DataApp.class, args);
+        SpringApplication springApplication=new SpringApplication(DataApp.class);
+        System.out.println("Spring Core Version:- " + SpringVersion.getVersion());
+        springApplication.run(args);
     }
 
     @GetMapping("/hello")
