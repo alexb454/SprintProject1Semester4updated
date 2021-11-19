@@ -1,6 +1,6 @@
 package The_Golf_Club.Controllers;
 
-import The_Golf_Club.MembershipAndTournaments.Tournament;
+import The_Golf_Club.Java.Tournament;
 import The_Golf_Club.Repository.TournamentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@CrossOrigin(origins = "http://localhost:8082")
+@CrossOrigin(origins = "http://localhost:3306")
 @RestController
 @RequestMapping("/api")
 public class TournamentController {

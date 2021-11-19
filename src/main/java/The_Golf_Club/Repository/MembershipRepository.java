@@ -3,17 +3,13 @@ package The_Golf_Club.Repository;
 import java.time.LocalDate;
 import java.util.List;
 
-import The_Golf_Club.MembershipAndTournaments.Membership;
+import The_Golf_Club.Java.Membership;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 @RepositoryRestResource(collectionResourceRel = "members", path = "members")
 public interface MembershipRepository extends PagingAndSortingRepository<Membership, Long> {
-    List<Membership> findByMembershipName(@Param("name") String name);
-    List<Membership> findByMembershipAddress(@Param("address") String address);
-    List<Membership> findByMembershipEmail(@Param("email") String email);
-    List<Membership> findByMembershipPhoneNumber(@Param("phoneNumber") int phoneNumber);
     List<Membership> findByMembershipStartDate(@Param("startDate") LocalDate startDate);
     List<Membership> findByMembershipDuration(@Param("duration") LocalDate duration);
     List<Membership> findByMembershipType(@Param("membershipType") String membershipType);

@@ -1,9 +1,6 @@
-package The_Golf_Club.MembershipAndTournaments;
+package The_Golf_Club.Java;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
@@ -11,10 +8,9 @@ public class Membership {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private String name;
-    private String address;
-    private String email;
-    private int phoneNumber;
+    @OneToOne
+    @JoinColumn(name = "person_id")
+    private Person person;
     private LocalDate startDate;
     private LocalDate duration;
     private String membershipType;
@@ -22,13 +18,9 @@ public class Membership {
     private String pastTournaments;
     private String upcomingTournaments;
 
-    public Membership(String name, String address, String email, int phoneNumber, LocalDate startDate,
-                      LocalDate duration, String membershipType, String pastTournaments,
+    public Membership(Person person, LocalDate startDate, LocalDate duration, String membershipType, String pastTournaments,
                       String currentTournaments, String upcomingTournaments) {
-        this.name = name;
-        this.address = address;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
+        this.person = person;
         this.startDate = startDate;
         this.duration = duration;
         this.membershipType = membershipType;
@@ -37,44 +29,20 @@ public class Membership {
         this.upcomingTournaments = upcomingTournaments;
     }
 
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
+    }
+
     public long getId() {
         return id;
     }
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        name = name;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        address = address;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        email = email;
-    }
-
-    public int getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(int phoneNumber) {
-        phoneNumber = phoneNumber;
     }
 
     public LocalDate getStartDate() {

@@ -3,7 +3,7 @@ package The_Golf_Club.Repository;
 import java.time.LocalTime;
 import java.util.List;
 
-import The_Golf_Club.MembershipAndTournaments.Tournament;
+import The_Golf_Club.Java.Tournament;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
