@@ -1,7 +1,7 @@
 /*package The_Golf_Club.Controllers;
 
-import The_Golf_Club.Repository.Membership;
-import The_Golf_Club.Repository.MembershipRepository;
+import The_Golf_Club.DataRest.Membership;
+import The_Golf_Club.DataRest.MembershipRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +22,7 @@ public class MembershipController {
         try{
             List<Membership> memberships = new ArrayList<Membership>();
             if(startDate == null)
-                repo.findByMembershipStartDate(startDate).forEach(memberships::add);
+                repo.findByStartDate(startDate).forEach(memberships::add);
             return new ResponseEntity<>(memberships, HttpStatus.OK);
         }catch(Exception e){
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -34,7 +34,7 @@ public class MembershipController {
         try{
             List<Membership> memberships = new ArrayList<Membership>();
             if(duration == null)
-                repo.findByMembershipDuration(duration).forEach(memberships::add);
+                repo.findByDuration(duration).forEach(memberships::add);
             return new ResponseEntity<>(memberships, HttpStatus.OK);
         }catch(Exception e){
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -60,9 +60,9 @@ public class MembershipController {
             if(currentTournaments == null & pastTournaments == null)
                 repo.findAll().forEach(memberships::add);
             else if(currentTournaments == null)
-                repo.findByMembershipCurrentTournaments(currentTournaments).forEach(memberships::add);
+                repo.findByCurrentTournaments(currentTournaments).forEach(memberships::add);
             else
-                repo.findByMembershipPastTournaments(pastTournaments).forEach(memberships::add);
+                repo.findByPastTournaments(pastTournaments).forEach(memberships::add);
             return new ResponseEntity<>(memberships, HttpStatus.OK);
         }catch(Exception e){
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -74,7 +74,7 @@ public class MembershipController {
         try{
             List<Membership> memberships = new ArrayList<Membership>();
             if(upcomingTournaments == null)
-                repo.findByMembershipUpcomingTournaments(upcomingTournaments).forEach(memberships::add);
+                repo.findByUpcomingTournaments(upcomingTournaments).forEach(memberships::add);
             return new ResponseEntity<>(memberships, HttpStatus.OK);
         }catch(Exception e){
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -85,7 +85,7 @@ public class MembershipController {
     public ResponseEntity<Membership> postMembership(@RequestBody Membership membership) {
         try {
             Membership membership1 = (Membership) repo
-                    .save(new Membership(membership.getPerson(), membership.getStartDate(), membership.getDuration(), membership.getMembershipType(), membership.getPastTournaments(),
+                    .save(new Membership(membership.getStartDate(), membership.getDuration(), membership.getMembershipType(), membership.getPastTournaments(),
                     membership.getCurrentTournaments(), membership.getUpcomingTournaments()));
             return new ResponseEntity<>(membership1, HttpStatus.CREATED);
         } catch (Exception e) {
@@ -98,7 +98,6 @@ public class MembershipController {
         Optional<Membership> membershipInfo = repo.findById(id);
         if (membershipInfo.isPresent()) {
             Membership membership1 = membershipInfo.get();
-            membership1.setPerson(membership.getPerson());
             membership1.setStartDate(membership.getStartDate());
             membership1.setDuration(membership.getDuration());
             membership1.setMembershipType(membership.getMembershipType());
@@ -120,5 +119,4 @@ public class MembershipController {
         }
     }
 
-}
-*/
+}*/

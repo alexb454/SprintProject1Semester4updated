@@ -18,6 +18,9 @@ public class Membership {
     private String pastTournaments;
     private String upcomingTournaments;
 
+    //public Membership(LocalDate startDate, LocalDate duration, String membershipType, String pastTournaments, String currentTournaments, String upcomingTournaments) {
+    //}
+
     public long getId() {
         return id;
     }
