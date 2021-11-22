@@ -1,23 +1,36 @@
-package The_Golf_Club.Java;
+package The_Golf_Club.DataRest;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+@Entity
 public class Person {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private String name;
+    private String firstName;
+    private String lastName;
     private String address;
     private String email;
     private int phoneNumber;
 
-    public Person(String name, String address, String email, int phoneNumber){
-        this.name = name;
-        this.address = address;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public long getId() {
@@ -28,20 +41,12 @@ public class Person {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        name = name;
-    }
-
     public String getAddress() {
         return address;
     }
 
     public void setAddress(String address) {
-        address = address;
+        this.address = address;
     }
 
     public String getEmail() {
@@ -49,7 +54,7 @@ public class Person {
     }
 
     public void setEmail(String email) {
-        email = email;
+        this.email = email;
     }
 
     public int getPhoneNumber() {
@@ -57,6 +62,6 @@ public class Person {
     }
 
     public void setPhoneNumber(int phoneNumber) {
-        phoneNumber = phoneNumber;
+        this.phoneNumber = phoneNumber;
     }
 }

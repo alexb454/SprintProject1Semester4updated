@@ -1,6 +1,6 @@
-package The_Golf_Club.Controllers;
+/*package The_Golf_Club.Controllers;
 
-import The_Golf_Club.Java.Membership;
+import The_Golf_Club.Repository.Membership;
 import The_Golf_Club.Repository.MembershipRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -121,3 +121,4 @@ public class MembershipController {
     }
 
 }
+*/

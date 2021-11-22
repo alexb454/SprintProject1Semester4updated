@@ -1,10 +1,10 @@
-package The_Golf_Club.Controllers;
+/*package The_Golf_Club.Controllers;
 
 
 import The_Golf_Club.Java.*;
-import The_Golf_Club.Java.Person;
-import The_Golf_Club.Java.Person;
-import The_Golf_Club.Java.Person;
+import The_Golf_Club.Repository.Person;
+import The_Golf_Club.Repository.Person;
+import The_Golf_Club.Repository.Person;
 import The_Golf_Club.Repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -104,4 +104,4 @@ public class PersonController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-}
+}*/

@@ -1,4 +1,4 @@
-package The_Golf_Club.Java;
+package The_Golf_Club.DataRest;
 
 import javax.persistence.*;
 import java.time.LocalTime;
@@ -13,21 +13,8 @@ public class Tournament {
     private String location;
     private double fee;
     private double prize;
-    @OneToOne
-    @JoinColumn(name = "members_id")
-    private Membership members;
-    private String Standings;
-
-    public Tournament(LocalTime start, LocalTime End, String Location, double Fee, double Prize,
-                      Membership Members, String Standings){
-        this.start = start;
-        this.end = End;
-        this.location = Location;
-        this.fee = Fee;
-        this.prize = Prize;
-        this.members = Members;
-        this.Standings = Standings;
-    }
+    private String members;
+    private String standings;
 
     public long getId() {
         return id;
@@ -77,19 +64,19 @@ public class Tournament {
         this.prize = prize;
     }
 
-    public Membership getMembers() {
+    public String getMembers() {
         return members;
     }
 
-    public void setMembers(Membership members) {
+    public void setMembers(String members) {
         this.members = members;
     }
 
     public String getStandings() {
-        return Standings;
+        return standings;
     }
 
     public void setStandings(String standings) {
-        Standings = standings;
+        this.standings = standings;
     }
 }

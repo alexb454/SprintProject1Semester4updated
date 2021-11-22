@@ -1,6 +1,9 @@
-package The_Golf_Club.Java;
+package The_Golf_Club.DataRest;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.time.LocalDate;
 
 @Entity
@@ -8,34 +11,12 @@ public class Membership {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @OneToOne
-    @JoinColumn(name = "person_id")
-    private Person person;
     private LocalDate startDate;
     private LocalDate duration;
     private String membershipType;
     private String currentTournaments;
     private String pastTournaments;
     private String upcomingTournaments;
-
-    public Membership(Person person, LocalDate startDate, LocalDate duration, String membershipType, String pastTournaments,
-                      String currentTournaments, String upcomingTournaments) {
-        this.person = person;
-        this.startDate = startDate;
-        this.duration = duration;
-        this.membershipType = membershipType;
-        this.pastTournaments = pastTournaments;
-        this.currentTournaments = currentTournaments;
-        this.upcomingTournaments = upcomingTournaments;
-    }
-
-    public Person getPerson() {
-        return person;
-    }
-
-    public void setPerson(Person person) {
-        this.person = person;
-    }
 
     public long getId() {
         return id;
@@ -50,7 +31,7 @@ public class Membership {
     }
 
     public void setStartDate(LocalDate startDate) {
-        startDate = startDate;
+        this.startDate = startDate;
     }
 
     public LocalDate getDuration() {
@@ -58,7 +39,7 @@ public class Membership {
     }
 
     public void setDuration(LocalDate duration) {
-        duration = duration;
+        this.duration = duration;
     }
 
     public String getMembershipType() {
@@ -66,7 +47,7 @@ public class Membership {
     }
 
     public void setMembershipType(String membershipType) {
-        membershipType = membershipType;
+        this.membershipType = membershipType;
     }
 
     public String getCurrentTournaments() {
@@ -74,7 +55,7 @@ public class Membership {
     }
 
     public void setCurrentTournaments(String currentTournaments) {
-        currentTournaments = currentTournaments;
+        this.currentTournaments = currentTournaments;
     }
 
     public String getPastTournaments() {
@@ -82,7 +63,7 @@ public class Membership {
     }
 
     public void setPastTournaments(String pastTournaments) {
-        pastTournaments = pastTournaments;
+        this.pastTournaments = pastTournaments;
     }
 
     public String getUpcomingTournaments() {
@@ -90,6 +71,6 @@ public class Membership {
     }
 
     public void setUpcomingTournaments(String upcomingTournaments) {
-        upcomingTournaments = upcomingTournaments;
+        this.upcomingTournaments = upcomingTournaments;
     }
 }

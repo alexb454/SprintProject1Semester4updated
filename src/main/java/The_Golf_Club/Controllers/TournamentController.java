@@ -1,6 +1,6 @@
-package The_Golf_Club.Controllers;
+/*package The_Golf_Club.Controllers;
 
-import The_Golf_Club.Java.Tournament;
+import The_Golf_Club.Repository.Tournament;
 import The_Golf_Club.Repository.TournamentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -134,3 +134,4 @@ public class TournamentController {
         }
     }
 }
+*/
