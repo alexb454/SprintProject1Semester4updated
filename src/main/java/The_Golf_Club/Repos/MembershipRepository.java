@@ -1,8 +1,9 @@
-package The_Golf_Club.DataRest;
+package The_Golf_Club.Repos;
 
 import java.time.LocalDate;
 import java.util.List;
 
+import The_Golf_Club.DataRest.Membership;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;

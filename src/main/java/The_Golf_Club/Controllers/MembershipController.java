@@ -1,7 +1,7 @@
 /*package The_Golf_Club.Controllers;
 
 import The_Golf_Club.DataRest.Membership;
-import The_Golf_Club.DataRest.MembershipRepository;
+import The_Golf_Club.Repos.MembershipRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
