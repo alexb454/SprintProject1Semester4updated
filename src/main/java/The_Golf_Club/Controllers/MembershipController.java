@@ -98,6 +98,7 @@ public class MembershipController {
         Optional<Membership> membershipInfo = repo.findById(id);
         if (membershipInfo.isPresent()) {
             Membership membership1 = membershipInfo.get();
+
             membership1.setStartDate(membership.getStartDate());
             membership1.setDuration(membership.getDuration());
             membership1.setMembershipType(membership.getMembershipType());

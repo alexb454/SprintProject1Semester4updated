@@ -1,9 +1,13 @@
 package The_Golf_Club.DataRest;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
@@ -11,15 +15,26 @@ public class Membership {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+    @OneToOne
+    private Person person;
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    @JsonDeserialize(using = LocalDateDeserializer.class)
+    @JsonSerialize(using = LocalDateSerializer.class)
     private LocalDate startDate;
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    @JsonDeserialize(using = LocalDateDeserializer.class)
+    @JsonSerialize(using = LocalDateSerializer.class)
     private LocalDate duration;
-    private String membershipType;
-    private String currentTournaments;
-    private String pastTournaments;
-    private String upcomingTournaments;
-
-    //public Membership(LocalDate startDate, LocalDate duration, String membershipType, String pastTournaments, String currentTournaments, String upcomingTournaments) {
-    //}
+    @OneToOne
+    private MembershipType membershipType;
+    @ManyToOne
+    private CurrentTournament currentTournament;
+    @ManyToOne
+    private PastTournament pastTournament;
+    @ManyToOne
+    private UpcomingTournament upcomingTournament;
 
     public long getId() {
         return id;
@@ -27,6 +42,14 @@ public class Membership {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
     }
 
     public LocalDate getStartDate() {
@@ -45,35 +68,35 @@ public class Membership {
         this.duration = duration;
     }
 
-    public String getMembershipType() {
+    public MembershipType getMembershipType() {
         return membershipType;
     }
 
-    public void setMembershipType(String membershipType) {
+    public void setMembershipType(MembershipType membershipType) {
         this.membershipType = membershipType;
     }
 
-    public String getCurrentTournaments() {
-        return currentTournaments;
+    public CurrentTournament getCurrentTournament() {
+        return currentTournament;
     }
 
-    public void setCurrentTournaments(String currentTournaments) {
-        this.currentTournaments = currentTournaments;
+    public void setCurrentTournament(CurrentTournament currentTournament) {
+        this.currentTournament = currentTournament;
     }
 
-    public String getPastTournaments() {
-        return pastTournaments;
+    public PastTournament getPastTournament() {
+        return pastTournament;
     }
 
-    public void setPastTournaments(String pastTournaments) {
-        this.pastTournaments = pastTournaments;
+    public void setPastTournament(PastTournament pastTournament) {
+        this.pastTournament = pastTournament;
     }
 
-    public String getUpcomingTournaments() {
-        return upcomingTournaments;
+    public UpcomingTournament getUpcomingTournament() {
+        return upcomingTournament;
     }
 
-    public void setUpcomingTournaments(String upcomingTournaments) {
-        this.upcomingTournaments = upcomingTournaments;
+    public void setUpcomingTournament(UpcomingTournament upcomingTournament) {
+        this.upcomingTournament = upcomingTournament;
     }
 }

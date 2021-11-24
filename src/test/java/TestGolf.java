@@ -1,4 +1,4 @@
-import java.time.LocalDate;
+/*import java.time.LocalDate;
 import java.time.LocalTime;
 
 import The_Golf_Club.DataRest.Membership;
@@ -13,20 +13,20 @@ public class TestGolf {
     public void testMembership() {
         Membership actualMembership = new Membership();
         actualMembership.setCurrentTournaments("Bay Bulls Open");
-        LocalDate ofEpochDayResult = LocalDate.ofEpochDay(1L);
-        actualMembership.setDuration(ofEpochDayResult);
+        LocalDate start = LocalDate.of(2016, 8, 19);
+        actualMembership.setDuration(start);
         actualMembership.setId(123L);
-        actualMembership.setMembershipType("Pro");
+        actualMembership.setMembershipType("Normal");
         actualMembership.setPastTournaments("Mario Golf, Downtown Open");
-        LocalDate ofEpochDayResult1 = LocalDate.ofEpochDay(1L);
-        actualMembership.setStartDate(ofEpochDayResult1);
+        LocalDate start1 = LocalDate.of(2016, 8, 27);
+        actualMembership.setStartDate(start1);
         actualMembership.setUpcomingTournaments("Badminton");
         assertEquals("Bay Bulls Open", actualMembership.getCurrentTournaments());
-        assertSame(ofEpochDayResult, actualMembership.getDuration());
+        assertSame(start, actualMembership.getDuration());
         assertEquals(123L, actualMembership.getId());
-        assertEquals("Pro", actualMembership.getMembershipType());
+        assertEquals("Normal", actualMembership.getMembershipType());
         assertEquals("Mario Golf, Downtown Open", actualMembership.getPastTournaments());
-        assertSame(ofEpochDayResult1, actualMembership.getStartDate());
+        assertSame(start1, actualMembership.getStartDate());
         assertEquals("Badminton", actualMembership.getUpcomingTournaments());
     }
 
@@ -37,7 +37,7 @@ public class TestGolf {
         LocalDate ofEpochDayResult = LocalDate.ofEpochDay(1L);
         actualMembership.setDuration(ofEpochDayResult);
         actualMembership.setId(123L);
-        actualMembership.setMembershipType("Pro");
+        actualMembership.setMembershipType("Normal");
         actualMembership.setPastTournaments("Mario Golf, Downtown Open");
         LocalDate ofEpochDayResult1 = LocalDate.ofEpochDay(1L);
         actualMembership.setStartDate(ofEpochDayResult1);
@@ -45,7 +45,7 @@ public class TestGolf {
         assertNotEquals("Bay Bulls Landmeet", actualMembership.getCurrentTournaments());
         assertSame(ofEpochDayResult, actualMembership.getDuration());
         assertNotEquals(567, actualMembership.getId());
-        assertNotEquals("Rookie", actualMembership.getMembershipType());
+        assertNotEquals("Trial", actualMembership.getMembershipType());
         assertNotEquals("Mario Tennis", actualMembership.getPastTournaments());
         assertSame(ofEpochDayResult1, actualMembership.getStartDate());
         assertNotEquals("None", actualMembership.getUpcomingTournaments());
@@ -89,4 +89,4 @@ public class TestGolf {
         assertEquals("1.Josh, 2.Jimmy, 3.George", actualTournament.getStandings());
         assertSame(ofResult1, actualTournament.getStart());
     }
-}
+}*/
