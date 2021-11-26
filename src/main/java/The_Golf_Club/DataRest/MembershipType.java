@@ -9,7 +9,7 @@ public class MembershipType {
     private long id;
     private String type;
     private String familyPlan;
-    @ManyToOne
+    @OneToOne
     private Membership member;
 
     public long getId() {

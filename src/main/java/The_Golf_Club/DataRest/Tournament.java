@@ -1,15 +1,30 @@
 package The_Golf_Club.DataRest;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
-import java.time.LocalTime;
+import java.time.LocalDate;
 
 @Entity
 public class Tournament {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private LocalTime start;
-    private LocalTime end;
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    @JsonDeserialize(using = LocalDateDeserializer.class)
+    @JsonSerialize(using = LocalDateSerializer.class)
+    private LocalDate start;
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    @JsonDeserialize(using = LocalDateDeserializer.class)
+    @JsonSerialize(using = LocalDateSerializer.class)
+    private LocalDate end;
     private String location;
     private double fee;
     private double prize;
@@ -24,19 +39,19 @@ public class Tournament {
         this.id = id;
     }
 
-    public LocalTime getStart() {
+    public LocalDate getStart() {
         return start;
     }
 
-    public void setStart(LocalTime start) {
+    public void setStart(LocalDate start) {
         this.start = start;
     }
 
-    public LocalTime getEnd() {
+    public LocalDate getEnd() {
         return end;
     }
 
-    public void setEnd(LocalTime end) {
+    public void setEnd(LocalDate end) {
         this.end = end;
     }
 
