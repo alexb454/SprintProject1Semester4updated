@@ -15,8 +15,8 @@ public interface MembershipRepository extends PagingAndSortingRepository<Members
     List<Membership> findMembershipByPersonId(@Param("personId") Long id);
     List<Membership> findByStartDate(@Param("startDate") LocalDate startDate);
     List<Membership> findByDuration(@Param("duration") LocalDate duration);
-    List<Membership> findMembershipByMembershipTypeType(@Param("type") String type);
-    List<Membership> findMembershipByCurrentTournamentId(@Param("currentId") Long id);
-    List<Membership> findMembershipByPastTournamentId(@Param("pastId") Long id);
-    List<Membership> findMembershipByUpcomingTournamentId(@Param("upcomingId") Long id);
+    List<Membership> findMembershipByMembershipTypeId(@Param("membershiptypeId") Long id);
+    List<Membership> findMembershipByCurrentTournamentId(@Param("currenttournamentId") Long id);
+    List<Membership> findMembershipByPastTournamentId(@Param("pasttournamentId") Long id);
+    List<Membership> findMembershipByUpcomingTournamentId(@Param("upcomingtournamentId") Long id);
 }
