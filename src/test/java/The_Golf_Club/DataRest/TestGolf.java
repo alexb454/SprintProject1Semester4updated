@@ -27,7 +27,7 @@ public class TestGolf {
     }
 
     @Test
-    void testMembership() {
+    public void testMembership() {
         Membership actualMembership = new Membership();
         Tournament tournament = new Tournament();
         tournament.setLocation("Location");
@@ -182,7 +182,7 @@ public class TestGolf {
     }
 
     @Test
-    void testMembershipType() {
+    public void testMembershipType() {
         MembershipType actualMembershipType = new MembershipType();
         actualMembershipType.setFamilyPlan("Family Plan");
         actualMembershipType.setId(123L);
@@ -294,7 +294,7 @@ public class TestGolf {
     }
 
     @Test
-    void testTournament() {
+    public void testTournament() {
         Tournament actualTournament = new Tournament();
         LocalDate ofEpochDayResult = LocalDate.ofEpochDay(1L);
         actualTournament.setEnd(ofEpochDayResult);
@@ -317,7 +317,7 @@ public class TestGolf {
     }
 
     @Test
-    void testPast() {
+    public void testPast() {
         PastTournament actualPastTournament = new PastTournament();
         actualPastTournament.setId(1);
         LocalDate ofEpochDayResult = LocalDate.ofEpochDay(1L);
@@ -359,7 +359,7 @@ public class TestGolf {
     }
 
     @Test
-    void testConstructor() {
+    public void testUpcoming() {
         UpcomingTournament actualUpcomingTournament = new UpcomingTournament();
         actualUpcomingTournament.setId(1);
         Tournament tournament = new Tournament();
