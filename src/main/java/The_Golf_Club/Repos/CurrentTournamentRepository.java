@@ -11,6 +11,6 @@ import java.util.List;
 
 @RepositoryRestResource(collectionResourceRel = "current", path = "current")
 public interface CurrentTournamentRepository extends PagingAndSortingRepository<CurrentTournament, Long> {
-    List<CurrentTournament> findByCurrentTournamentDate(@Param("currentTournametDate") LocalDate currentTournametDate);
-    List<CurrentTournament> findCurrentTournamentByTournament(@Param("tournamet") LocalDate tournamet);
+    List<CurrentTournament> findByCurrentTournamentDate(@Param("currentTournamentDate") LocalDate currentTournamentDate);
+    List<CurrentTournament> findCurrentTournamentByTournament(@Param("tournament") LocalDate tournament);
 }
